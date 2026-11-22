@@ -187,6 +187,22 @@ body{font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",R
 #dv-pricing .mkt-save{font-size:13.5px;font-weight:600;color:#1f6b42;margin-top:4px}
 #dv-pricing .fnd-eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#1f6b42;margin-bottom:2px}
 #dv-pricing .fnd-line .reg{font-size:12.5px;color:var(--p-stone)}
+#dv-contact{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px}
+#dv-contact[hidden]{display:none}
+#dv-contact .dvc-back{position:absolute;inset:0;background:rgba(26,32,29,.45)}
+#dv-contact .dvc-card{position:relative;width:min(440px,100%);background:#fff;border-radius:16px;padding:24px;box-shadow:0 30px 60px -20px rgba(0,0,0,.35);font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#1a201d;animation:dvc-in .22s ease}
+@keyframes dvc-in{from{transform:translateY(8px);opacity:.4}to{transform:none;opacity:1}}
+#dv-contact .dvc-x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;color:#747771;cursor:pointer;padding:6px}
+#dv-contact .dvc-k{margin:0;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#747771;font-weight:600}
+#dv-contact h3{margin:6px 0 4px;font-size:20px;letter-spacing:-.015em}
+#dv-contact .dvc-p{margin:0 0 14px;font-size:14px;color:#4e5550}
+#dv-contact .dvc-row{display:flex;gap:8px;align-items:center;border:1px solid #dadcd5;border-radius:10px;padding:8px 8px 8px 12px;margin-bottom:12px}
+#dv-contact code{flex:1;min-width:0;font:600 15px/1.3 "Instrument Sans",sans-serif;overflow-wrap:anywhere;user-select:all}
+#dv-contact .dvc-copy{border:1px solid #1a201d;background:#fff;border-radius:100px;padding:7px 12px;font-weight:600;font-size:13px;cursor:pointer}
+#dv-contact .dvc-btns{display:grid;gap:8px}
+#dv-contact .dvc-b{display:flex;justify-content:center;align-items:center;min-height:42px;border-radius:100px;border:1px solid #1a201d;color:#1a201d;text-decoration:none;font-weight:600;font-size:14px;transition:transform .2s ease}
+#dv-contact .dvc-b:hover{transform:scale(1.03)}
+#dv-contact .dvc-main{background:#1a201d;color:#fff}
 @keyframes dvp-pulse{0%{box-shadow:0 0 0 0 rgba(201,162,74,.55)}70%{box-shadow:0 0 0 7px rgba(201,162,74,0)}100%{box-shadow:0 0 0 0 rgba(201,162,74,0)}}
 #dv-pricing .pack.pop:hover .tag b{transform:scale(1.06)}
 /* Entrance: content is visible at rest; it only rises a few pixels into place */
@@ -300,8 +316,34 @@ body{font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",R
   sec.querySelectorAll("[data-pack]").forEach(function(a){
     var p=a.getAttribute("data-pack");
     var body="Hi Detox Visuals,\n\nI'm interested in: "+p+"\n\nBrand:\nWebsite:\nProduct(s):\nWhat it's for (launch, season, campaign):\n";
-    a.href="mailto:"+EMAIL+"?subject="+encodeURIComponent(p==="Free sample"?"Free sample request":"Package request: "+p)+"&body="+encodeURIComponent(body);
+    var subj=(p==="Free sample"?"Free sample request":"Package request: "+p);
+    a.href="mailto:"+EMAIL+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    a.addEventListener("click",function(e){e.preventDefault();openContact(subj,body);});
   });
+  /* Contact sheet: works even when the visitor has no default email app */
+  var sheet=document.createElement("div");
+  sheet.id="dv-contact";sheet.hidden=true;
+  sheet.innerHTML='<div class="dvc-back" data-close></div><div class="dvc-card" role="dialog" aria-modal="true" aria-labelledby="dvc-t"><button class="dvc-x" data-close aria-label="Close">×</button><p class="dvc-k">Send your request</p><h3 id="dvc-t"></h3><p class="dvc-p">Email us and we will get back to you with next steps.</p><div class="dvc-row"><code id="dvc-mail"></code><button class="dvc-copy" type="button">Copy email</button></div><div class="dvc-btns"><a class="dvc-b dvc-main" id="dvc-gmail" target="_blank" rel="noopener">Open in Gmail</a><a class="dvc-b" id="dvc-outlook" target="_blank" rel="noopener">Open in Outlook</a><a class="dvc-b" id="dvc-app">Open my email app</a></div></div>';
+  document.body.appendChild(sheet);
+  sheet.querySelector("#dvc-mail").textContent=EMAIL;
+  function openContact(subj,body){
+    sheet.querySelector("#dvc-t").textContent=subj;
+    sheet.querySelector("#dvc-gmail").href="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(EMAIL)+"&su="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    sheet.querySelector("#dvc-outlook").href="https://outlook.live.com/mail/0/deeplink/compose?to="+encodeURIComponent(EMAIL)+"&subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    sheet.querySelector("#dvc-app").href="mailto:"+EMAIL+"?subject="+encodeURIComponent(subj)+"&body="+encodeURIComponent(body);
+    sheet.querySelector(".dvc-copy").textContent="Copy email";
+    sheet.hidden=false;sheet.querySelector(".dvc-x").focus();
+  }
+  sheet.addEventListener("click",function(e){
+    if(e.target.closest("[data-close]")){sheet.hidden=true;return;}
+    if(e.target.closest(".dvc-copy")){
+      var btn=e.target.closest(".dvc-copy");
+      var done=function(){btn.textContent="Copied";};
+      try{navigator.clipboard.writeText(EMAIL).then(done,function(){selectMail();});}catch(_){selectMail();}
+    }
+  });
+  function selectMail(){var r=document.createRange();r.selectNodeContents(sheet.querySelector("#dvc-mail"));var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")sheet.hidden=true;});
   sec.addEventListener("click",function(e){
     var s=e.target.closest("sup a");if(!s)return;
     e.preventDefault();var d=document.getElementById("dvp-sources");if(d){d.open=true;d.scrollIntoView({behavior:"smooth",block:"center"});}

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detox Visuals Pricing</title>
+<meta name="description" content="Detox Visuals pricing: market prices compared with ours, and monthly packages.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap">
+<style>
+:root{--page:#fbfaf7;--ink:#1a201d;--line:#dadcd5;--stone:#747771}
+html,body{background:var(--page);color:var(--ink)}
+body{font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.top{border-bottom:1px solid var(--line)}
+.top .in,.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:16px}
+.brand{display:inline-flex;align-items:center;gap:11px;font-weight:660;font-size:18px;letter-spacing:-.04em;color:var(--ink)}
+.brand i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-family:Georgia,serif;font-size:18px;font-weight:500;letter-spacing:-.08em;padding-right:2px}
+.top small{font-size:12.5px;color:var(--stone)}
+.wrap{padding-block:32px 48px}
+.note{max-width:1180px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px));font-size:13px;color:var(--stone)}
+</style>
+<style>body{margin:0}*{box-sizing:border-box}img{max-width:100%}</style>
+</head>
+<body>
+<header class="top"><div class="in"><span class="brand"><i>D</i>Detox Visuals</span><small>AI product ads and stills</small></div></header>
+<main class="wrap">
+<style>
+/* Pricing panel: compare first (what production costs vs ours), then monthly packages.
+   Matches the studio-refresh palette: paper, ink, stone, line, green. Single light theme like the rest of the site. */
+#dv-pricing{
+  --p-paper:#fbfaf7; --p-ink:#1a201d; --p-stone:#747771; --p-line:#dadcd5; --p-mist:#f0f0eb; --p-green:#456e59; --p-green-soft:#e8efe9;
+  --p-serif:Georgia,"Times New Roman",serif;
+  --p-sans:"Instrument Sans","Instrument Sans Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--p-ink);font-family:var(--p-sans);padding-block:8px 24px;
+}
+#panel-packages > :not(#dv-pricing){display:none!important}
+#dv-pricing *{box-sizing:border-box}
+#dv-pricing h2,#dv-pricing h3,#dv-pricing p{margin:0}
+#dv-pricing .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--p-stone);font-weight:600}
+#dv-pricing .lead{display:grid;gap:10px;max-width:44rem;margin-bottom:18px}
+#dv-pricing .lead h2{font-size:clamp(30px,4.4vw,50px);line-height:1.04;letter-spacing:-.035em;font-weight:600;text-wrap:balance}
+#dv-pricing .lead h2 em{font-family:var(--p-serif);font-weight:400;font-style:italic;letter-spacing:-.02em}
+#dv-pricing .lead p{font-size:16px;line-height:1.55;color:#4e5550;max-width:38rem}
+
+/* Part 1: the comparison, compact: red = studio cost (crossed out), green = ours */
+#dv-pricing{--p-red:#b42318;--p-red-soft:#fdecea;--p-grn:#1f7a45;--p-grn-soft:#e6f4ea}
+#dv-pricing .compare{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#dv-pricing .cmp{display:grid;gap:8px;padding:14px 16px;border:1px solid var(--p-line);border-radius:12px;background:#fff;min-width:0}
+#dv-pricing .cmp h3{font-size:16px;font-weight:650;letter-spacing:-.01em}
+#dv-pricing .cmp .what{font-size:12.5px;line-height:1.4;color:var(--p-stone)}
+#dv-pricing .pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+#dv-pricing .pr .them{color:var(--p-red);font-size:18px;font-weight:600;text-decoration:line-through;text-decoration-thickness:2px}
+#dv-pricing .pr .arrow{color:var(--p-stone);font-size:14px}
+#dv-pricing .pr .us{color:var(--p-grn);font-size:26px;font-weight:700;letter-spacing:-.02em}
+#dv-pricing .keep{font-size:12.5px;font-weight:600;color:var(--p-grn);background:var(--p-grn-soft);border-radius:6px;padding:3px 8px;width:max-content;max-width:100%}
+#dv-pricing .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--p-stone);margin-bottom:10px}
+#dv-pricing .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+#dv-pricing sup a{color:var(--p-stone);text-decoration:none;font-size:10px;margin-left:2px}
+#dv-pricing sup a:hover{color:var(--p-ink)}
+#dv-pricing details.src{margin-top:12px;font-size:13px;color:var(--p-stone)}
+#dv-pricing details.src summary{cursor:pointer;width:max-content;max-width:100%;list-style:none;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--p-line)}
+#dv-pricing details.src summary::-webkit-details-marker{display:none}
+#dv-pricing details.src summary:focus-visible{outline:2px solid var(--p-green);outline-offset:3px}
+#dv-pricing details.src ol{margin:10px 0 0;padding-left:20px;display:grid;gap:6px;line-height:1.5;max-width:46rem}
+#dv-pricing details.src a{color:var(--p-ink)}
+
+/* Part 2: packages */
+#dv-pricing .pk-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin:56px 0 20px}
+#dv-pricing .pk-head h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.03em;font-weight:600;line-height:1.08}
+#dv-pricing .pk-head h2 em{font-family:var(--p-serif);font-style:italic;font-weight:400}
+#dv-pricing .pk-head p{font-size:14px;color:var(--p-stone);max-width:26rem;line-height:1.5}
+#dv-pricing .packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+#dv-pricing .pack{display:flex;flex-direction:column;gap:16px;padding:24px;border:1px solid var(--p-line);border-radius:13px;background:#fff;min-width:0}
+#dv-pricing .pack.pop{border:2px solid var(--p-ink);padding:23px}
+#dv-pricing .tag{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--p-stone);font-weight:600}
+#dv-pricing .tag b{background:var(--p-ink);color:#fff;border-radius:100px;padding:4px 10px;letter-spacing:.08em;font-size:11px}
+#dv-pricing .pack h3{font-size:24px;letter-spacing:-.02em;font-weight:620}
+#dv-pricing .price{display:grid;gap:4px;font-variant-numeric:tabular-nums}
+#dv-pricing .price .now{font-size:40px;font-weight:650;letter-spacing:-.035em;line-height:1}
+#dv-pricing .price .now small{font-size:15px;font-weight:500;color:var(--p-stone);letter-spacing:0}
+#dv-pricing .price .was{font-size:14px;color:var(--p-stone)}
+#dv-pricing .price .was s{text-decoration-thickness:1px}
+#dv-pricing .save{background:var(--p-green-soft);color:var(--p-green);border-radius:8px;padding:10px 12px;font-size:13.5px;line-height:1.45;font-weight:560}
+#dv-pricing .save span{display:block;font-weight:450;color:#4e5550;margin-top:2px}
+#dv-pricing .pack ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px;line-height:1.4}
+#dv-pricing .pack li{display:flex;gap:10px;align-items:baseline}
+#dv-pricing .pack li b{min-width:1.6em;font-variant-numeric:tabular-nums;font-weight:650}
+#dv-pricing .pack .fit{font-size:13.5px;color:#4e5550;line-height:1.5;margin-top:auto;padding-top:14px;border-top:1px solid var(--p-line)}
+#dv-pricing .cta{display:flex;justify-content:center;align-items:center;min-height:46px;border-radius:100px;border:1px solid var(--p-ink);color:var(--p-ink);text-decoration:none;font-weight:600;font-size:14.5px}
+#dv-pricing .pack.pop .cta{background:var(--p-ink);color:#fff}
+#dv-pricing .cta:hover{background:var(--p-ink);color:#fff}
+#dv-pricing .cta:focus-visible{outline:2px solid var(--p-green);outline-offset:3px}
+#dv-pricing .foot{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;margin-top:16px}
+#dv-pricing .foot > div{border:1px solid var(--p-line);border-radius:13px;padding:18px 20px;font-size:14.5px;line-height:1.55;color:#4e5550;background:var(--p-mist)}
+#dv-pricing .foot strong{color:var(--p-ink)}
+#dv-pricing .foot a{color:var(--p-ink);font-weight:600}
+
+@media (max-width:960px){
+  #dv-pricing .compare{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #dv-pricing .packs{grid-template-columns:minmax(0,1fr)}
+  #dv-pricing .foot{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  #dv-pricing .cmp{padding:12px}
+  #dv-pricing .pr .us{font-size:22px}
+  #dv-pricing .pack{padding:20px}
+  #dv-pricing .pack.pop{padding:19px}
+}
+</style>
+
+<style id="dvp-polish">
+/* Compact + motion pass for laptop screens */
+#dv-pricing{padding-block:4px 16px}
+#dv-pricing .lead{gap:6px;margin-bottom:14px}
+#dv-pricing .lead h2{font-size:clamp(28px,3.6vw,42px)}
+#dv-pricing .lead p{font-size:15.5px}
+#dv-pricing .legend{margin-bottom:8px}
+#dv-pricing .compare{gap:10px}
+#dv-pricing .cmp{gap:6px;padding:12px 14px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+#dv-pricing .cmp:hover{transform:translateY(-3px);box-shadow:0 10px 24px -14px rgba(26,32,29,.35);border-color:#c9ccc4}
+#dv-pricing .cmp h3{font-size:16px}
+#dv-pricing .pr .them{font-size:17px}
+#dv-pricing .pr .us{font-size:26px}
+#dv-pricing .pr .arrow{display:inline-block;transition:transform .25s ease}
+#dv-pricing .cmp:hover .arrow{transform:translateX(3px)}
+#dv-pricing .keep{font-size:12px}
+#dv-pricing details.src{margin-top:8px;font-size:12.5px}
+#dv-pricing .pk-head{margin:30px 0 12px}
+#dv-pricing .pk-head h2{font-size:clamp(24px,3vw,34px)}
+#dv-pricing .packs{gap:12px}
+#dv-pricing .pack{gap:12px;padding:20px;transition:transform .28s ease,box-shadow .28s ease}
+#dv-pricing .pack.pop{padding:19px}
+#dv-pricing .pack:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(26,32,29,.45)}
+#dv-pricing .pack h3{font-size:21px}
+#dv-pricing .price .now{font-size:36px}
+#dv-pricing .save{padding:8px 10px;font-size:13px}
+#dv-pricing .pack ul{gap:7px;font-size:15px}
+#dv-pricing .pack .fit{font-size:12.5px;padding-top:10px}
+#dv-pricing .cta{min-height:44px;font-size:14.5px;transition:transform .2s ease,background-color .2s ease,color .2s ease,box-shadow .2s ease}
+#dv-pricing .cta:hover{transform:scale(1.04);box-shadow:0 8px 18px -10px rgba(26,32,29,.5)}
+#dv-pricing .cta:active{transform:scale(.98)}
+#dv-pricing .foot{gap:12px;margin-top:12px}
+#dv-pricing .foot > div{padding:12px 16px;font-size:13.5px}
+#dv-pricing .foot a{display:inline-block;transition:transform .2s ease}
+#dv-pricing .foot a:hover{transform:scale(1.05)}
+#dv-pricing .tag b{transition:transform .25s ease}
+#dv-pricing .price .now.fnd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+#dv-pricing .price .old{font-size:22px;font-weight:600;color:#b42318;text-decoration:line-through;text-decoration-thickness:2px}
+#dv-pricing .price .gold{background:linear-gradient(180deg,#c9a24a,#9a7424);-webkit-background-clip:text;background-clip:text;color:#a7802c;-webkit-text-fill-color:transparent}
+#dv-pricing .fnd-badge{display:inline-flex;align-items:center;gap:7px;width:max-content;max-width:100%;margin-top:4px;padding:4px 10px;border-radius:100px;background:#f7efdc;border:1px solid #e6d3a6;color:#7a5a17;font-size:12.5px;font-weight:600}
+#dv-pricing .fnd-badge .dot{width:7px;height:7px;border-radius:50%;background:#c9a24a;box-shadow:0 0 0 0 rgba(201,162,74,.6);animation:none}
+#dv-pricing .fnd-badge .spots{margin-left:2px;padding:2px 9px;border-radius:100px;background:#7a5a17;color:#fff8e6;font-size:12.5px;font-weight:700;letter-spacing:.01em}
+#dv-pricing .pack.pop .fnd-badge .spots{background:#b42318;animation:dvp-throb 2.4s ease-in-out infinite}
+@keyframes dvp-throb{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@media (prefers-reduced-motion:reduce){#dv-pricing .pack.pop .fnd-badge .spots{animation:none}}
+#dv-pricing .ptable{border-top:1.5px solid var(--p-ink);border-bottom:1px solid var(--p-line);font-variant-numeric:tabular-nums}
+#dv-pricing .prow{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);align-items:center;gap:12px;padding:12px 4px;border-top:1px solid var(--p-line);transition:background-color .2s ease}
+#dv-pricing .prow:not(.phead):hover{background:var(--p-mist)}
+#dv-pricing .phead{border-top:0;padding-block:9px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--p-stone);font-weight:600}
+#dv-pricing .prow .c-name b{display:block;font-size:15.5px;font-weight:650;color:var(--p-ink)}
+#dv-pricing .prow .c-name small{display:block;font-size:13px;color:var(--p-stone);margin-top:2px}
+#dv-pricing .prow .c-mkt,#dv-pricing .prow .c-us,#dv-pricing .prow .c-sv{text-align:right}
+#dv-pricing .prow .c-mkt s{color:#9b3a30;font-size:16px;text-decoration-thickness:1.5px;text-decoration-color:rgba(155,58,48,.7)}
+#dv-pricing .prow:not(.phead) .c-us{color:#1f6b42;font-size:20px;font-weight:700;letter-spacing:-.01em}
+#dv-pricing .prow:not(.phead) .c-sv{font-size:15px;font-weight:600;color:var(--p-ink)}
+#dv-pricing .prow .c-sv small{display:block;font-size:12px;font-weight:450;color:var(--p-stone)}
+#dv-pricing .phead .c-mkt{color:#9b3a30}#dv-pricing .phead .c-us{color:#1f6b42}
+@media (max-width:620px){
+  #dv-pricing .phead{display:none}
+  #dv-pricing .prow{grid-template-columns:minmax(0,1fr) auto auto;row-gap:4px}
+  #dv-pricing .prow .c-name{grid-column:1/-1}
+  #dv-pricing .prow .c-mkt{text-align:left}
+  #dv-pricing .prow .c-sv{grid-column:1/-1;text-align:left}
+  #dv-pricing .prow .c-sv small{display:inline}
+}
+#dv-pricing .pack .fnd-badge .spots{animation:none!important;background:var(--p-ink)!important;color:#fff!important}
+#dv-pricing .price .gold{background:none!important;-webkit-text-fill-color:currentColor!important;color:var(--p-ink)!important}
+#dv-pricing .price .old{font-size:18px!important;font-weight:500!important;color:#9b3a30!important;text-decoration-thickness:1.5px!important}
+#dv-pricing .fnd-line{font-size:13px;color:var(--p-stone);margin-top:2px;letter-spacing:.01em}
+#dv-pricing .pack.pop .fnd-line{color:var(--p-ink);font-weight:600}
+#dv-pricing .fnd-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#dv-pricing .spots-pill{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:100px;border:1px solid var(--p-ink);color:var(--p-ink);font-size:12px;font-weight:650;letter-spacing:.01em}
+#dv-pricing .spots-pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#1f6b42}
+#dv-pricing .pack.pop .spots-pill{background:var(--p-ink);color:#fff}
+#dv-pricing .pack.pop .spots-pill::before{background:#7bd3a0}
+#dv-pricing .mkt-save{font-size:13.5px;font-weight:600;color:#1f6b42;margin-top:4px}
+#dv-pricing .fnd-eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#1f6b42;margin-bottom:2px}
+#dv-pricing .fnd-line .reg{font-size:12.5px;color:var(--p-stone)}
+@keyframes dvp-pulse{0%{box-shadow:0 0 0 0 rgba(201,162,74,.55)}70%{box-shadow:0 0 0 7px rgba(201,162,74,0)}100%{box-shadow:0 0 0 0 rgba(201,162,74,0)}}
+#dv-pricing .pack.pop:hover .tag b{transform:scale(1.06)}
+/* Entrance: content is visible at rest; it only rises a few pixels into place */
+@keyframes dvp-rise{from{transform:translateY(10px);opacity:.35}to{transform:none;opacity:1}}
+#dv-pricing:not([hidden]) .cmp,#dv-pricing:not([hidden]) .pack{animation:dvp-rise .5s cubic-bezier(.2,.7,.2,1) both}
+#dv-pricing .cmp:nth-child(2){animation-delay:.05s}
+#dv-pricing .cmp:nth-child(3){animation-delay:.1s}
+#dv-pricing .cmp:nth-child(4){animation-delay:.15s}
+#dv-pricing .pack:nth-child(1){animation-delay:.12s}
+#dv-pricing .pack:nth-child(2){animation-delay:.18s}
+#dv-pricing .pack:nth-child(3){animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){
+  #dv-pricing *{animation:none!important;transition:none!important}
+  #dv-pricing .cmp:hover,#dv-pricing .pack:hover,#dv-pricing .cta:hover{transform:none}
+}
+</style>
+<section id="dv-pricing" aria-labelledby="dvp-h">
+  <div class="lead">
+    <p class="eyebrow">Pricing</p>
+    <h2 id="dvp-h">Studio grade content, <em>without the studio bill.</em></h2>
+    <p>The market price for each kind of shot, next to what it costs with us.</p>
+  </div>
+
+  <div class="ptable" role="table" aria-label="Market price compared with Detox Visuals">
+    <div class="prow phead" role="row"><span role="columnheader">Shot type</span><span role="columnheader" class="c-mkt">Market price</span><span role="columnheader" class="c-us">Detox Visuals</span><span role="columnheader" class="c-sv">You save</span></div>
+    <div class="prow" role="row"><span role="cell" class="c-name"><b>Stills</b><small>Product photos for your store and ads</small></span><span role="cell" class="c-mkt"><s>$150</s></span><span role="cell" class="c-us">$40</span><span role="cell" class="c-sv">$110 <small>per still</small></span></div>
+    <div class="prow" role="row"><span role="cell" class="c-name"><b>B-roll</b><small>Your product on its own, in a setting you choose</small></span><span role="cell" class="c-mkt"><s>$1,000+</s></span><span role="cell" class="c-us">$150</span><span role="cell" class="c-sv">$850+ <small>per video</small></span></div>
+    <div class="prow" role="row"><span role="cell" class="c-name"><b>Lifestyle ad</b><small>Your product held or worn by people</small></span><span role="cell" class="c-mkt"><s>$3,500+</s></span><span role="cell" class="c-us">$250</span><span role="cell" class="c-sv">$3,250+ <small>per ad</small></span></div>
+    <div class="prow" role="row"><span role="cell" class="c-name"><b>Hero film</b><small>A cinematic, story driven product ad</small></span><span role="cell" class="c-mkt"><s>$5,000+</s></span><span role="cell" class="c-us">$400</span><span role="cell" class="c-sv">$4,600+ <small>per film</small></span></div>
+  </div>
+
+  <details class="src" id="dvp-sources">
+    <summary>Where the market prices come from</summary>
+    <ol>
+      <li id="dvp-s1">Stills: <a href="https://www.shopify.com/blog/product-photography-pricing" target="_blank" rel="noopener">Shopify, product photography pricing</a>, which puts per image pricing between $50 and $350. We use $150, a point below the middle of that range.</li>
+      <li id="dvp-s2">Video: <a href="https://vidico.com/news/product-video-cost/" target="_blank" rel="noopener">Vidico, product video cost</a> (US, 2026): simple product and B-roll videos $1,000–$3,000, lifestyle videos with talent from $3,500, product launch commercials from $5,000. We compare against the low end of each range.</li>
+      <li>Video prices are per 15 second ad.</li>
+    </ol>
+  </details>
+
+  <div class="pk-head">
+    <h2>Monthly packages, <em>stills included.</em></h2>
+    <p>Month to month, cancel anytime. Founders discounts are limited to a few spots per package.</p>
+  </div>
+
+  <div class="packs">
+    <article class="pack">
+      <p class="tag">B-Roll</p>
+      <h3>B-Roll Monthly</h3>
+      <div class="price">
+        <p class="now fnd"><s class="old" aria-label="Regular price $650">$650</s> <span class="gold">$550</span><small> / month</small></p>
+        <p class="fnd-line"><span class="spots-pill">Founders discount · 5 spots left</span></p>
+        <p class="mkt-save">Saves $2,950 compared to market price</p>
+      </div>
+      <ul>
+        <li><b>2</b><span>B-rolls</span></li>
+        <li><b>10</b><span>stills</span></li>
+      </ul>
+      <p class="fit">For brands that need a steady stream of clean product B-roll for ads and social.</p>
+      <a class="cta" data-pack="B-Roll Monthly ($550/mo founders)" href="#">Request B-Roll Monthly</a>
+    </article>
+
+    <article class="pack pop">
+      <p class="tag">Campaign <b>Most popular</b></p>
+      <h3>Campaign Monthly</h3>
+      <div class="price">
+        <p class="now fnd"><s class="old" aria-label="Regular price $1,490">$1,490</s> <span class="gold">$1,290</span><small> / month</small></p>
+        <p class="fnd-line"><span class="spots-pill">Founders discount · 2 spots left</span></p>
+        <p class="mkt-save">Saves $12,010 compared to market price</p>
+      </div>
+      <ul>
+        <li><b>3</b><span>B-rolls</span></li>
+        <li><b>1</b><span>lifestyle ad</span></li>
+        <li><b>1</b><span>hero film</span></li>
+        <li><b>12</b><span>stills</span></li>
+      </ul>
+      <p class="fit">For established brands running ads all year: fresh B-roll every month, plus a story driven film for each launch, new drop or holiday push.</p>
+      <a class="cta" data-pack="Campaign Monthly ($1,290/mo founders)" href="#">Request Campaign Monthly</a>
+    </article>
+
+    <article class="pack">
+      <p class="tag">Season</p>
+      <h3>Season Monthly</h3>
+      <div class="price">
+        <p class="now fnd"><s class="old" aria-label="Regular price $2,290">$2,290</s> <span class="gold">$2,190</span><small> / month</small></p>
+        <p class="fnd-line"><span class="spots-pill">Founders discount · 4 spots left</span></p>
+        <p class="mkt-save">Saves $20,310 compared to market price</p>
+      </div>
+      <ul>
+        <li><b>4</b><span>B-rolls</span></li>
+        <li><b>2</b><span>lifestyle ads</span></li>
+        <li><b>2</b><span>hero films</span></li>
+        <li><b>10</b><span>stills</span></li>
+      </ul>
+      <p class="fit">For launches and holiday pushes, when you need a full campaign every month.</p>
+      <a class="cta" data-pack="Season Monthly ($2,190/mo founders)" href="#">Request Season Monthly</a>
+    </article>
+  </div>
+
+  <div class="foot">
+    <div><strong>Every ad:</strong> 15 seconds, 9:16 and 4:5, yours to keep. 2 revisions, delivered within 72 hours of your direction.</div>
+    <div><strong>Not sure yet?</strong> Start with a free sample of your own product. <a class="cta-link" data-pack="Free sample" href="#">Ask for a free sample</a></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var EMAIL="aryandrexel@gmail.com";
+  var sec=document.getElementById("dv-pricing");
+  if(!sec)return;
+  sec.querySelectorAll("[data-pack]").forEach(function(a){
+    var p=a.getAttribute("data-pack");
+    var body="Hi Detox Visuals,\n\nI'm interested in: "+p+"\n\nBrand:\nWebsite:\nProduct(s):\nWhat it's for (launch, season, campaign):\n";
+    a.href="mailto:"+EMAIL+"?subject="+encodeURIComponent(p==="Free sample"?"Free sample request":"Package request: "+p)+"&body="+encodeURIComponent(body);
+  });
+  sec.addEventListener("click",function(e){
+    var s=e.target.closest("sup a");if(!s)return;
+    e.preventDefault();var d=document.getElementById("dvp-sources");if(d){d.open=true;d.scrollIntoView({behavior:"smooth",block:"center"});}
+  });
+
+  /* Pricing shortcut: header link + #pricing link open the Packages tab and scroll to it */
+  function openPricing(smooth){
+    var tab=document.getElementById("tab-packages");if(!tab)return false;
+    tab.click();
+    var list=tab.closest('[role="tablist"]')||tab;
+    var y=list.getBoundingClientRect().top+window.scrollY-96;
+    window.scrollTo({top:Math.max(0,y),behavior:smooth?"smooth":"auto"});
+    return true;
+  }
+  function addNav(){
+    var ul=document.querySelector("#root > header nav ul");
+    if(!ul||ul.querySelector("[data-dv-pricing]"))return;
+    var about=[].find.call(ul.querySelectorAll("a"),function(a){return a.getAttribute("href")==="#about"});
+    var li=document.createElement("li");var a=document.createElement("a");
+    a.href="#pricing";a.textContent="Pricing";a.setAttribute("data-dv-pricing","");
+    a.addEventListener("click",function(e){e.preventDefault();openPricing(true);try{history.replaceState(null,"","#pricing")}catch(_){}});
+    li.appendChild(a);
+    if(about&&about.parentElement&&about.parentElement.parentElement===ul)ul.insertBefore(li,about.parentElement);else ul.insertBefore(li,ul.lastElementChild);
+  }
+  var navTries=0;var navIv=setInterval(function(){navTries++;addNav();if(navTries>80)clearInterval(navIv)},100);
+  function fromHash(){if(location.hash==="#pricing"){var n=0;var h=setInterval(function(){n++;if(openPricing(false)||n>40)clearInterval(h)},100);}}
+  window.addEventListener("hashchange",fromHash);fromHash();
+  function place(){
+    var pk=document.getElementById("panel-packages");
+    if(pk&&pk.firstElementChild!==sec){pk.insertBefore(sec,pk.firstElementChild);}
+    if(pk)sec.hidden=false;
+  }
+  var tries=0;var iv=setInterval(function(){tries++;place();if(tries>100)clearInterval(iv)},100);
+  new MutationObserver(function(){var pk=document.getElementById("panel-packages");if(pk&&pk.firstElementChild!==sec)place()}).observe(document.body,{childList:true,subtree:true});
+  place();
+})();
+</script>
+</main>
+<p class="note">Questions about a package? Just reply to my email.</p>
+
+</body>
+</html>
